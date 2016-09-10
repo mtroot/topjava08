@@ -9,11 +9,14 @@ import java.time.LocalTime;
  * 11.01.2015.
  */
 public class Meal {
-    private final LocalDateTime dateTime;
+    private LocalDateTime dateTime;
 
-    private final String description;
+    private String description;
 
-    private final int calories;
+    private int calories;
+
+    public Meal() {
+    }
 
     public Meal(LocalDateTime dateTime, String description, int calories) {
         this.dateTime = dateTime;
