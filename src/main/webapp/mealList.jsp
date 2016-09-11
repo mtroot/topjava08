@@ -2,7 +2,7 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fmt" uri="http://topjava.javawebinar.ru/functions" %>
 <html>
 <head>
     <title>Meals</title>
@@ -30,8 +30,10 @@
         <c:forEach items="${ml}" var="meal">
             <jsp:useBean id="meal" class="ru.javawebinar.topjava.model.MealWithExceed"/>
             <tr class=${meal.exceed ? "exceed" : "norm"}>
-                <td><%DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");%>
-                    <%=meal.getDateTime().format(f)%>
+                <td>
+                    <%--<%DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");%>
+                    <%=meal.getDateTime().format(f)%>--%>
+                    ${fmt:matches(meal.dateTime, "yyyy-MM-dd HH:mm")}
                 </td>
                 <td>${meal.description}</td>
                 <td>${meal.calories}</td>
